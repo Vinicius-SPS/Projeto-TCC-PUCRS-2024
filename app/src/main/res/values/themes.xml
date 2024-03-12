@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Projettccpucrs2024" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/blue_main</item>
+        <item name="colorSecondary">@color/blue_side</item>
+
+        <item name="android:windowBackground">@drawable/app_background</item>
+        <item name="colorAccent">@color/blue_side</item>
+        <item name="colorOutline">@color/blue_side</item>
+        <item name="android:statusBarColor">@color/blue_dark</item>
+
+    </style>
+
+    <style name="Theme.Projetotccpucrs2024" parent="Base.Theme.Projettccpucrs2024" />
+</resources>

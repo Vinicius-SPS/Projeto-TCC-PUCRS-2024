@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:fadeScrollbars="true"
+    tools:context=".view.CreateProfileTagsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/margin"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="0dp"
+            android:background="#00000000"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/Title"
+            style="@style/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_tag"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.34"
+            app:layout_constraintStart_toEndOf="@+id/btn_back"
+            app:layout_constraintTop_toTopOf="@+id/btn_back"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            style="@style/text_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:text="@string/tags_text"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Title" />
+
+
+
+        <!-- GAME STYLE -->
+        <TextView
+            android:id="@+id/game_style_title"
+            style="@style/profile_item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/game_style"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subtitle" />
+
+
+        <ImageView
+            android:id="@+id/line_1"
+            style="@style/division_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_style_title" />
+
+        <android.widget.Button
+            android:id="@+id/tag_casual"
+            style="@style/tag_not_selected"
+            android:layout_marginTop="8dp"
+            android:text="@string/tag_casual"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_1" />
+
+        <android.widget.Button
+            android:id="@+id/tag_competitive"
+            style="@style/tag_not_selected"
+            android:text="@string/tag_competitive"
+            app:layout_constraintBottom_toBottomOf="@+id/tag_casual"
+            app:layout_constraintStart_toEndOf="@+id/tag_casual"
+            app:layout_constraintTop_toTopOf="@+id/tag_casual"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <!-- LENGUAGES -->
+        <TextView
+            android:id="@+id/lenguages_title"
+            style="@style/profile_item_title"
+            android:layout_marginTop="32dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/lenguages_spoken"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tag_casual" />
+
+
+        <ImageView
+            android:id="@+id/line_2"
+            style="@style/division_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lenguages_title" />
+
+        <android.widget.Button
+            android:id="@+id/tag_portuguese"
+            style="@style/tag_not_selected"
+            android:layout_marginTop="8dp"
+            android:text="@string/tag_portuguese"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_2" />
+
+        <android.widget.Button
+            android:id="@+id/tag_english"
+            style="@style/tag_not_selected"
+            android:text="@string/tag_english"
+            app:layout_constraintBottom_toBottomOf="@+id/tag_portuguese"
+            app:layout_constraintStart_toEndOf="@+id/tag_portuguese"
+            app:layout_constraintTop_toTopOf="@+id/tag_portuguese"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <!-- Plataform -->
+        <TextView
+            android:id="@+id/plataforms_title"
+            style="@style/profile_item_title"
+            android:layout_width="0dp"
+            android:layout_marginTop="32dp"
+            android:layout_height="wrap_content"
+            android:text="@string/plataforms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tag_portuguese" />
+
+        <ImageView
+            android:id="@+id/line_3"
+            style="@style/division_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plataforms_title" />
+
+        <android.widget.Button
+            android:id="@+id/tag_pc"
+            style="@style/tag_not_selected"
+            android:layout_marginTop="8dp"
+            android:text="@string/tag_pc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_3" />
+
+        <android.widget.Button
+            android:id="@+id/tag_mobile"
+            style="@style/tag_not_selected"
+            android:text="@string/tag_mobile"
+            app:layout_constraintStart_toEndOf="@+id/tag_pc"
+            app:layout_constraintTop_toTopOf="@+id/tag_pc" />
+
+
+        <android.widget.Button
+            android:id="@+id/tag_xbox"
+            style="@style/tag_not_selected"
+            android:text="@string/tag_xbox"
+            app:layout_constraintStart_toEndOf="@+id/tag_mobile"
+            app:layout_constraintTop_toTopOf="@+id/tag_mobile" />
+
+        <android.widget.Button
+            android:id="@+id/tag_playstation"
+            style="@style/tag_not_selected"
+            android:layout_marginTop="8dp"
+            android:text="@string/tag_playstation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tag_pc" />
+
+        <!-- Games -->
+        <TextView
+            android:id="@+id/games_title"
+            style="@style/profile_item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/games_i_play"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tag_playstation" />
+
+        <ImageView
+            android:id="@+id/line_4"
+            style="@style/division_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/games_title" />
+
+        <android.widget.Button
+            android:id="@+id/tag_lol"
+            style="@style/tag_not_selected"
+            android:layout_marginTop="8dp"
+            android:text="@string/tag_lol"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_4" />
+
+        <android.widget.Button
+            android:id="@+id/tag_minecraft"
+            style="@style/tag_not_selected"
+            android:text="@string/tag_minecraft"
+            app:layout_constraintStart_toEndOf="@+id/tag_lol"
+            app:layout_constraintTop_toTopOf="@+id/tag_lol" />
+
+        <android.widget.Button
+            android:id="@+id/tag_apex"
+            style="@style/tag_not_selected"
+            android:text="@string/tag_apex"
+            app:layout_constraintStart_toEndOf="@+id/tag_minecraft"
+            app:layout_constraintTop_toTopOf="@+id/tag_minecraft" />
+
+        <android.widget.Button
+            android:id="@+id/tag_cs"
+            style="@style/tag_not_selected"
+            android:layout_marginTop="8dp"
+            android:text="@string/tag_cs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tag_lol" />
+
+        <android.widget.Button
+            android:id="@+id/tag_freefire"
+            style="@style/tag_not_selected"
+            android:text="@string/tag_freefire"
+            app:layout_constraintStart_toEndOf="@+id/tag_cs"
+            app:layout_constraintTop_toTopOf="@+id/tag_cs" />
+
+        <android.widget.Button
+            android:id="@+id/btn_save"
+            style="@style/btn_blue"
+            android:layout_marginTop="100dp"
+            android:text="@string/save_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tag_freefire"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

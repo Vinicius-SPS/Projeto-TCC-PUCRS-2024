@@ -1,0 +1,106 @@
+<resources>
+    <string name="app_name">SQU4DRON</string>
+    <string name="mvp_version">MVP Offline - by Vinícius Silva</string>
+
+    <string name="name_placeholder">Nome de Usuário</string>
+    <string name="text_placeholder">Texto genérico</string>
+    <string name="subscription_placeholde">Assinatura: Gratuita</string>
+
+    <!-- Fragments Screen -->
+    <string name="profile_title">Perfil</string>
+    <string name="search_title">Procurar</string>
+    <string name="invites_title">Convites</string>
+    <string name="chats_title">Conversas</string>
+
+    <!-- Buttons Text -->
+    <string name="logoff_text">Sair</string>
+    <string name="edit_text">Editar</string>
+    <string name="save_text">Salvar</string>
+    <string name="invite_text">Convidar</string>
+    <string name="next_text">Próximo</string>
+    <string name="finish_text">Finalizar</string>
+
+    <!-- Tela Inicial | Cadastrar | Login -->
+    <string name="welcome">Seja Bem Vindo!</string>
+    <string name="login">Login</string>
+    <string name="register">Cadastrar</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="forgot_password">Esqueci da minha senha.</string>
+    <string name="i_dont_have_account">Não tenho uma conta. Criar agora!</string>
+    <string name="i_have_account">Já tenho uma conta. Entrar agora!</string>
+
+    <string name="type_email">Digite o seu endereço de e-mail</string>
+
+
+    <string name="type_password">Digite a sua senha</string>
+    <string name="confirm_password">Digite nomavente a sua senha</string>
+
+    <string name="register_text">Preencha os campos abaixo para efetuar o cadastro!</string>
+
+
+    <!-- PASWROD RECOVERY -->
+    <string name="recover_password_text">Digite o endereço de email para alterar a senha!</string>
+    <string name="email_recover_password_sent_text">Um email para a alteração de senha foi enviado para o endereço digitado!</string>
+    <string name="send_email">Enviar</string>
+    <string name="forgot_password_text">Enviar</string>
+    <string name="forgot_password_title">Esqueci da minha senha</string>
+
+    <!-- CREATE PROFILE | PROFILE -->
+    <string name="create_profile_text">Criar Perfil</string>
+    <string name="user_name_subtitle">Digite o seu nome de usuário. Ele será visível para todos os usuários!</string>
+    <string name="user_name_text">Nome de usuário</string>
+    <string name="description_title">Descrição</string>
+    <string name="edit_tag">Editar Tags</string>
+
+
+    <!-- TAG TITLES -->
+    <string name="game_style">Estilo de Jogo</string>
+    <string name="lenguages_spoken">Idiomas que falo</string>
+    <string name="game_genre">Gênero de Jogo</string>
+    <string name="games_i_play">O que jogo</string>
+    <string name="frequency_i_play">Frequencia que jogo</string>
+    <string name="plataforms">Plataformas</string>
+
+    <string name="tags_text">Selecione 5 tags para o seu perfil!</string>
+    <string name="edit_tags_title">Editar Tags</string>
+    <string name="tags_title">Tags</string>
+    <!-- ERRORS -->
+    <string name="error_mandatory_field">Campo Obrigatório.</string>
+    <string name="error_user_terms_mandatory">É preciso concordar com os termos de uso.</string>
+    <string name="error_invalid_bellow_password">A senha precisa conter mais de 6 caracteres.</string>
+    <string name="error_invalid_email">Email inválido.</string>
+    <string name="error_invalid_name">Nome inválido.</string>
+    <string name="error_existing_name">Nome já utilizado.</string>
+    <string name="error_min_password">A senha tem que ter no mínimo 6 caractéres.</string>
+    <string name="error_diff_password">As senhas tem que ser iguais.</string>
+    <string name="error_invalid_cellphone">Telefone inválido.</string>
+
+    <!-- TAGS LIST -->
+    <string name="tag_casual">Casual</string>
+    <string name="tag_competitive">Competitivo</string>
+    <string name="tag_portuguese">Português</string>
+    <string name="tag_english">Inglês</string>
+    <string name="tag_xbox">Xbox</string>
+    <string name="tag_playstation">PlayStation</string>
+    <string name="tag_pc">PC</string>
+    <string name="tag_mobile">Mobile</string>
+    <string name="tag_lol">LoL</string>
+    <string name="tag_apex">APEX</string>
+    <string name="tag_cs">CS</string>
+    <string name="tag_freefire">Free Fire</string>
+    <string name="tag_minecraft">Minecraft</string>
+
+
+    <!-- Profile -->
+    <string name="title_activity_app">AppActivity</string>
+
+    <string name="accept_txt">Aceitar</string>
+    <string name="deny_txt">Recusar</string>
+
+    <string name="place_holder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac porttitor sem, nec consectetur tellus. Curabitur vel diam augue. Aliquam id ipsum blandit, ultricies metus et, congue ligula. Aenean ultrices sem quis purus aliquet, sed vehicula neque faucibus. Vivamus at mollis mi. Maecenas bibendum ex mi, in efficitur sapien sollicitudin quis. In mauris odio, posuere mollis laoreet ut, bibendum ornare tellus. Nam nisi ex, vestibulum non risus a, dapibus tempus augue. Ut aliquam tempus feugiat. Nam sed leo tincidunt, dignissim risus ac, egestas ante. Nullam feugiat diam mauris, sit amet maximus diam pretium eget.</string>
+
+</resources>
