@@ -24,7 +24,7 @@ class ValidatePasswordLocal {
 
     fun verifyIsPasswordValid(field: Editable?): Boolean{
         if(field.toString().length < 6){
-            errorMessage = "Senha Inválida"
+            errorMessage = "A senha precisa ter, ao menos, 6 caractéres"
             isValid = false
             return true
         }

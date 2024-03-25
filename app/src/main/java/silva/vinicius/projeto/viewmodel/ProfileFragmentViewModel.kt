@@ -1,15 +1,23 @@
 package silva.vinicius.projeto.viewmodel
 
-class ProfileFragmentViewModel {
-    private val userProfileMock: silva.vinicius.projeto.data.placeholder.UserProfileMock =
-        silva.vinicius.projeto.data.placeholder.UserProfileMock()
+import silva.vinicius.projeto.firebase.get.FirebaseGetPersonalProfile
+import silva.vinicius.projeto.firebase.operations.FirebaseSignOut
+import silva.vinicius.projeto.firebase.update.singleupdates.FirebaseUpdateDescription
+import silva.vinicius.projeto.model.PersonalProfile
 
-    fun getUserInformationMock(): silva.vinicius.projeto.model.Profile {
-        return userProfileMock.mockUserInformations()
+
+class ProfileFragmentViewModel {
+
+    fun getProfile(callback: (Boolean, PersonalProfile?, String?) -> Unit){
+        FirebaseGetPersonalProfile().getPersonalProfile(callback)
     }
 
-    fun getUserInformationFirebase(){
+    fun updateDescription(text: String, callback: (Boolean, String?) -> Unit){
+        FirebaseUpdateDescription().updateProfile(text, callback)
+    }
 
+    fun signOut(){
+        FirebaseSignOut().doLogOff()
     }
 
 

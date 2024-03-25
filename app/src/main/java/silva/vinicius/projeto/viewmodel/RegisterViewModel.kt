@@ -2,23 +2,33 @@ package silva.vinicius.projeto.viewmodel
 
 import android.text.Editable
 import android.util.Log
+import silva.vinicius.projeto.firebase.operations.profilecreation.FirebaseCreateProfile
+import silva.vinicius.projeto.firebase.operations.FirebaseRegister
+import silva.vinicius.projeto.utils.fieldvalidations.ValidateConfirmPasswordLocal
 import silva.vinicius.projeto.utils.fieldvalidations.ValidateEmailLocal
 import silva.vinicius.projeto.utils.fieldvalidations.ValidatePasswordLocal
 
 class RegisterViewModel {
     private var validateEmailLocal : ValidateEmailLocal = ValidateEmailLocal()
     private var validatePasswordLocal: ValidatePasswordLocal = ValidatePasswordLocal()
-    private var validateConfirmPasswordLocal: silva.vinicius.projeto.utils.fieldvalidations.ValidateConfirmPasswordLocal =
-        silva.vinicius.projeto.utils.fieldvalidations.ValidateConfirmPasswordLocal()
+    private var validateConfirmPasswordLocal: ValidateConfirmPasswordLocal = ValidateConfirmPasswordLocal()
 
-    fun doRegister(email: Editable?, password: Editable?, confirmPassword: Editable?): Boolean {
+    fun doRegister(email: Editable?, password: Editable?, callback: (Boolean, String?) -> Unit){
+        FirebaseRegister().doRegister(email.toString(), password.toString(), callback)
+    }
+
+    fun verifyRegister(email: Editable?, password: Editable?, confirmPassword: Editable?): Boolean {
         verifyEmail(email)
         verifyPassword(password)
         verifyConfirmPassword(password, confirmPassword)
 
-        return validateEmailLocal.getIsEmailValid()
+        return (validateEmailLocal.getIsEmailValid()
                 && validatePasswordLocal.getIsPasswordValid()
-                && validatePasswordLocal.getIsPasswordValid()
+                && validateConfirmPasswordLocal.getIsPasswordValid())
+    }
+
+    fun createProfile(): Boolean{
+        return FirebaseCreateProfile().createProfile()
     }
 
     private fun verifyEmail(email: Editable?): Boolean{
@@ -47,12 +57,12 @@ class RegisterViewModel {
         return true
     }
 
-    private fun verifyConfirmPassword(password: Editable?, passwordConfirm: Editable?): Boolean{
-        if (validateConfirmPasswordLocal.verifyIsPasswordEmpty(passwordConfirm)) {
+    private fun verifyConfirmPassword(password: Editable?, confirmPassword: Editable?): Boolean{
+        if (validateConfirmPasswordLocal.verifyIsPasswordEmpty(confirmPassword)) {
             Log.d("registerViewModel","confirm password:" + validatePasswordLocal.getErrorMessage())
             return false
         }
-        if (validateConfirmPasswordLocal.verifyArePasswordsEqual(password, passwordConfirm)){
+        if (!validateConfirmPasswordLocal.verifyArePasswordsEqual(password, confirmPassword)){
             Log.d("registerViewModel","confirm password:" + validatePasswordLocal.getErrorMessage())
             return false
         }

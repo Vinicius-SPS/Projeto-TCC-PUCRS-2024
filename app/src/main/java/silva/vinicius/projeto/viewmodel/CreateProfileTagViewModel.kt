@@ -1,19 +1,32 @@
 package silva.vinicius.projeto.viewmodel
 
 import android.util.Log
+import silva.vinicius.projeto.firebase.update.FirebaseUpdateProfileCreation
+import silva.vinicius.projeto.utils.tags.TagGameStyle
+import silva.vinicius.projeto.utils.tags.TagGames
+import silva.vinicius.projeto.utils.tags.TagLanguages
+import silva.vinicius.projeto.utils.tags.TagManager
+import silva.vinicius.projeto.utils.tags.TagPlatforms
 
 class CreateProfileTagViewModel {
-    private var tagGames: silva.vinicius.projeto.utils.TagValidations.TagGames =
-        silva.vinicius.projeto.utils.TagValidations.TagGames()
-    private var tagGameStyle: silva.vinicius.projeto.utils.TagValidations.TagGameStyle =
-        silva.vinicius.projeto.utils.TagValidations.TagGameStyle()
-    private var tagLanguages: silva.vinicius.projeto.utils.TagValidations.TagLanguages =
-        silva.vinicius.projeto.utils.TagValidations.TagLanguages()
-    private var tagPlataforms: silva.vinicius.projeto.utils.TagValidations.TagPlataforms =
-        silva.vinicius.projeto.utils.TagValidations.TagPlataforms()
-    private var tagManager: silva.vinicius.projeto.utils.TagValidations.TagManager =
-        silva.vinicius.projeto.utils.TagValidations.TagManager()
+    private var tagGames: TagGames =
+        TagGames()
+    private var tagGameStyle: TagGameStyle =
+        TagGameStyle()
+    private var tagLanguages: TagLanguages =
+        TagLanguages()
+    private var tagPlatforms: TagPlatforms =
+        TagPlatforms()
+    private var tagManager: TagManager =
+        TagManager()
 
+
+    fun updateProfile(userName: String, tags: String, callback: (Boolean, String?) -> Unit){
+        FirebaseUpdateProfileCreation().updateProfile(userName, tags, callback)
+    }
+    fun getTags(): String{
+        return tagManager.getList()
+    }
     fun getIsListFull(): Boolean{
         return tagManager.isListFull()
     }
@@ -56,23 +69,23 @@ class CreateProfileTagViewModel {
     }
 
     fun tagStatePc(): Boolean{
-        tagPlataforms.setStatePc()
-        return tagPlataforms.getStatePc()
+        tagPlatforms.setStatePc()
+        return tagPlatforms.getStatePc()
     }
 
     fun tagStateXbox(): Boolean{
-        tagPlataforms.setStateXbox()
-        return  tagPlataforms.getStateXbox()
+        tagPlatforms.setStateXbox()
+        return  tagPlatforms.getStateXbox()
     }
 
     fun tagStatePlayStation(): Boolean{
-        tagPlataforms.setStatePlayStation()
-        return  tagPlataforms.getStatePlayStation()
+        tagPlatforms.setStatePlayStation()
+        return  tagPlatforms.getStatePlayStation()
     }
 
     fun tagStateMobile(): Boolean{
-        tagPlataforms.setStateMobile()
-        return tagPlataforms.getStateMobile()
+        tagPlatforms.setStateMobile()
+        return tagPlatforms.getStateMobile()
     }
 
     fun tagStateLol(): Boolean{

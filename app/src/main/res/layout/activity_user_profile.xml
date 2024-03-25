@@ -10,11 +10,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_dark"
         android:paddingHorizontal="@dimen/margin"
         android:paddingTop="16dp"
         android:paddingBottom="8dp"
-        android:layout_height="wrap_content"
-        android:background="@color/blue_dark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -89,6 +89,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@drawable/background_edt_text"
             android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -98,6 +99,7 @@
             android:id="@+id/tags_title"
             style="@style/profile_item_title"
             android:layout_width="0dp"
+
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/tags_title"
@@ -117,6 +119,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@drawable/background_edt_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/line_2" />

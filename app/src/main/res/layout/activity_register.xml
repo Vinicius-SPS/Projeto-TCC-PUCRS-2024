@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.197" />
+        app:layout_constraintVertical_bias="0.107" />
 
     <TextView
         android:id="@+id/subtitle"
@@ -64,7 +64,6 @@
         android:layout_marginTop="16dp"
         android:hint="@string/type_email"
         app:errorEnabled="true"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +73,7 @@
             android:id="@+id/text_input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_light"
+            android:background="@drawable/blue_only_border"
             android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -96,7 +95,7 @@
             android:id="@+id/text_input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_light"
+            android:background="@drawable/blue_only_border"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -118,7 +117,7 @@
             android:id="@+id/text_input_confirm_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_light"
+            android:background="@drawable/blue_only_border"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>

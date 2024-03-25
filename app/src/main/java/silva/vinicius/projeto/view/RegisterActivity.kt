@@ -6,6 +6,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import silva.vinicius.projeto.databinding.ActivityRegisterBinding
+import silva.vinicius.projeto.view.home.AppActivity
 import silva.vinicius.projeto.viewmodel.RegisterViewModel
 
 class RegisterActivity : AppCompatActivity() {
@@ -38,12 +39,26 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener {
-            if (viewModel.doRegister(binding.textInputEmail.text,
+            if (viewModel.verifyRegister(binding.textInputEmail.text,
                     binding.textInputPassword.text,
                     binding.textInputConfirmPassword.text)){
-//                if (true){
-                    startActivity(Intent(this@RegisterActivity, CreateProfileNameActivity::class.java))
-                    finish()
+
+
+                    viewModel.doRegister(binding.textInputEmail.text, binding.textInputPassword.text){ success, error ->
+                        if(success){
+                            viewModel.createProfile()
+                            val intent =  Intent(this@RegisterActivity, CreateProfileNameActivity::class.java)
+                            intent.putExtra("user_name"," ")
+                            startActivity(intent)
+                            finish()
+
+                        }
+                        else{
+                            binding.layoutTextInputEmail.error = "Endereço de e-mail já utilizaod"
+                            binding.layoutTextInputPassword.error = null
+                            binding.layoutTextInputConfirmPassword.error = null
+                        }
+                    }
                 }
                 else{
                     if(!viewModel.getIsEmailValid()) {

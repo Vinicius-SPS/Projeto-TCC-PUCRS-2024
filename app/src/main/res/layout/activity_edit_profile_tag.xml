@@ -233,6 +233,19 @@
             app:layout_constraintStart_toEndOf="@+id/tag_cs"
             app:layout_constraintTop_toTopOf="@+id/tag_cs" />
 
+        <TextView
+            android:id="@+id/error_message"
+            style="@style/text_generic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_save"
+            app:layout_constraintEnd_toEndOf="@+id/btn_save"
+            app:layout_constraintStart_toStartOf="@+id/btn_save"
+            />
+
         <android.widget.Button
             android:id="@+id/btn_save"
             style="@style/btn_blue"

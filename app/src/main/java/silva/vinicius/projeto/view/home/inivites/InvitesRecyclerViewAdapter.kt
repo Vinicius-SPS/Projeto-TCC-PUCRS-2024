@@ -8,11 +8,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import silva.vinicius.projeto.databinding.FragmentItemInviteBinding
+import silva.vinicius.projeto.firebase.get.FirebaseGetProfile
+import silva.vinicius.projeto.firebase.operations.invite.FirebaseAcceptInvite
+import silva.vinicius.projeto.firebase.operations.invite.FirebaseDenyInvite
+import silva.vinicius.projeto.model.Users
 import silva.vinicius.projeto.view.UserProfileActivity
 
-class InvitesRecyclerViewAdapter(private val context: Context,
-                                 private val userInvite: ArrayList<silva.vinicius.projeto.model.Users>,
-                                 private val userFriend: ArrayList<silva.vinicius.projeto.model.Users>
+class InvitesRecyclerViewAdapter(
+    private val context: Context,
+    private val values: ArrayList<Users>?
 ) :
     RecyclerView.Adapter<InvitesRecyclerViewAdapter.ViewHolder>() {
 
@@ -30,59 +34,71 @@ class InvitesRecyclerViewAdapter(private val context: Context,
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val item = userInvite[position]
-        viewHolder.userName.text = item.userName
-        viewHolder.btnAccept.setOnClickListener{
-            viewHolder.btnAccept.isClickable = false //Evitar o spam de clicks
-            Log.d("invite", "posicao: ${viewHolder.bindingAdapterPosition}")
-            Log.d("invite","Aceito")
-            Log.d("invite", "Removido posicao: ${viewHolder.bindingAdapterPosition}")
-            Log.d("invite", "Tamanho lista: ${userInvite.size}")
-            acceptInvite(viewHolder.bindingAdapterPosition)
+        if (values != null) {
+            val item = values[position]
+            val itemId: String = item.id.toString()
+            FirebaseGetProfile().getProfile(itemId) { result, profile, message ->
+                if (result && profile != null) {
+                    viewHolder.userName.text = profile.userName
 
+                    viewHolder.btnAccept.setOnClickListener {
+                        viewHolder.btnAccept.isClickable = false //Evitar o spam de clicks
+                        FirebaseAcceptInvite().acceptInvite(itemId) { result, message ->
+                            if (result) {
+                                removeFromList(viewHolder.bindingAdapterPosition)
+                            } else {
+                                Log.d("InvitesRecyclerViewAdapter", message)
+                            }
+
+                        }
+
+                    }
+                    viewHolder.btnDeny.setOnClickListener {
+                        viewHolder.btnAccept.isClickable = false //Evitar o spam de clicks
+                        FirebaseDenyInvite().denyInvite(itemId) { result, message ->
+                            if (result) {
+                                removeFromList(viewHolder.bindingAdapterPosition)
+                            } else {
+                                Log.d("InvitesRecyclerViewAdapter", message)
+                            }
+
+                        }
+
+                    }
+
+                    viewHolder.itemView.setOnClickListener {
+                        val intent = Intent(context, UserProfileActivity::class.java)
+                        intent.putExtra("user_id", item.id)
+
+                    }
+
+                }
+            }
         }
 
-        viewHolder.btnDeny.setOnClickListener{
-            viewHolder.btnAccept.isClickable = false //Evitar o spam de clicks
-            Log.d("invite", "posicao: ${viewHolder.bindingAdapterPosition}")
-            Log.d("invite","Negado")
-            Log.d("invite", "Removido posicao: ${viewHolder.bindingAdapterPosition}")
-            Log.d("invite", "Tamanho lista: ${userInvite.size}")
-            denyInvite(viewHolder.bindingAdapterPosition)
 
-
-
-
-        }
-        viewHolder.itemView.setOnClickListener{
-            val intent = Intent(context, UserProfileActivity::class.java)
-            intent.putExtra("user_name",item.userName)
-            intent.putExtra("description",item.description)
-            intent.putExtra("online_status", "Online")
-            intent.putExtra("tags", item.tags.toString().replace("[","").replace("]",""))
-            context.startActivity(intent)
-        }
     }
 
-    override fun getItemCount(): Int = userInvite.size
+    override fun getItemCount(): Int {
+        return if (values == null) 0
+        else values.size
+    }
 
-    inner class ViewHolder(binding: FragmentItemInviteBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(binding: FragmentItemInviteBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         val userName: TextView = binding.userName
         val btnAccept: TextView = binding.btnAccept
         val btnDeny: TextView = binding.btnDeny
 
 
     }
+    
+    private fun removeFromList(position: Int) {
+        if (values != null) {
+            values.removeAt(position)
+            notifyItemRemoved(position)
+        }
 
-    private fun denyInvite(position: Int) {
-        userInvite.removeAt(position)
-        notifyItemRemoved(position)
-    }
-
-    private fun acceptInvite(position: Int){
-        userFriend.add(userInvite[position])
-        userInvite.removeAt(position)
-        notifyItemRemoved(position)
     }
 }
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="16dp"
+    android:layout_marginTop="8dp"
     android:paddingHorizontal="@dimen/margin"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="@+id/profile_image" />
 
     <android.widget.Button
-        android:id="@+id/btn_accept"
+        android:id="@+id/btn_invite"
         style="@style/btn_invite"
         android:layout_width="0dp"
         android:layout_marginTop="4dp"

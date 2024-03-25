@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import silva.vinicius.projeto.databinding.ActivityForgotPasswordBinding
+import silva.vinicius.projeto.view.home.AppActivity
 import silva.vinicius.projeto.viewmodel.ForgotPasswordViewModel
 
 class ForgotPasswordActivity : AppCompatActivity() {
@@ -21,16 +22,41 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     private fun setButtons() {
         binding.btnSend.setOnClickListener {
-            if (viewModel.doSendPasswordRecovery(binding.textInputEmail.text)) {
-                startActivity(Intent(this@ForgotPasswordActivity, WelcomeActivity::class.java))
-                finish()
+            binding.btnSend.isActivated = false
+            if (viewModel.doVerifyPasswordRecovery(binding.textInputEmail.text)) {
+                viewModel.doSendEmail(binding.textInputEmail.text.toString()){ success, error ->
+                    if(success){
+                        binding.fieldTextInputEmail.error = viewModel.getEmailError()
+                        viewModel.doSendEmail(binding.textInputEmail.text.toString()){result, message ->
+                            if (result){
+                                startActivity(Intent(this@ForgotPasswordActivity, ChangePasswordMessageActivity::class.java))
+                                finish()
+                            }
+                            else{
+                                binding.fieldTextInputEmail.error = message
+                                binding.btnSend.isActivated = true
+                            }
+
+
+                        }
+                    }
+                    else{
+                        binding.fieldTextInputEmail.error = error
+                        binding.btnSend.isActivated = true
+
+                    }
+                }
             }
             else{
                 if(!viewModel.getIsEmailValid()) {
                     binding.fieldTextInputEmail.error = viewModel.getEmailError()
+                    binding.btnSend.isActivated = true
+
                 }
                 else{
                     binding.fieldTextInputEmail.error = null
+                    binding.btnSend.isActivated = true
+
                 }
             }
         }

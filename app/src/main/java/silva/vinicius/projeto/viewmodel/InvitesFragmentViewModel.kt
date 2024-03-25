@@ -1,16 +1,11 @@
 package silva.vinicius.projeto.viewmodel
 
+import silva.vinicius.projeto.firebase.get.invite.FirebaseGetInvitesList
+import silva.vinicius.projeto.model.Users
+
 class InvitesFragmentViewModel {
 
-    private val invitesMock = silva.vinicius.projeto.data.placeholder.InvitesMock()
-    private val chatsMock = silva.vinicius.projeto.data.placeholder.ChatsMock()
-//    private lateinit var friendsContent: FriendsContent
-
-    fun getInvitesListMock(): ArrayList<silva.vinicius.projeto.model.Users>{
-        return invitesMock.generateInvitesMock()
-    }
-
-    fun getChatsListMock(): ArrayList<silva.vinicius.projeto.model.Users>{
-        return chatsMock.getChatListMock()
+    fun getInvitesList(callback: (Boolean, ArrayList<Users>?, String) -> Unit){
+        FirebaseGetInvitesList().getInvitesList(callback)
     }
 }

@@ -232,6 +232,19 @@
             app:layout_constraintStart_toEndOf="@+id/tag_cs"
             app:layout_constraintTop_toTopOf="@+id/tag_cs" />
 
+        <TextView
+            android:id="@+id/error_message"
+            style="@style/text_generic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_finish"
+            app:layout_constraintEnd_toEndOf="@+id/btn_finish"
+            app:layout_constraintStart_toStartOf="@+id/btn_finish"
+            />
+
         <android.widget.Button
             android:id="@+id/btn_finish"
             style="@style/btn_blue"
@@ -243,5 +256,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tag_freefire"
             app:layout_constraintVertical_bias="1.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.19" />
 
     <TextView
         android:id="@+id/subtitle"
@@ -62,7 +62,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_input_email"
             android:layout_width="match_parent"
-            android:background="@color/white_light"
+            android:background="@drawable/blue_only_border"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
 
@@ -84,25 +84,23 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_input_password"
             android:layout_width="match_parent"
-            android:background="@color/white_light"
+            android:background="@drawable/blue_only_border"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <android.widget.Button
         android:id="@+id/btn_login"
         style="@style/btn_blue"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
 
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_text_input_password" />
-
-
-
 
     <TextView
         android:id="@+id/btn_forgot_password"

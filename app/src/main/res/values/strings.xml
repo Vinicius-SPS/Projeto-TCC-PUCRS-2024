@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SQU4DRON</string>
-    <string name="mvp_version">MVP Offline - by Vinícius Silva</string>
+    <string name="mvp_version">MVP Online - by Vinícius Silva</string>
 
     <string name="name_placeholder">Nome de Usuário</string>
     <string name="text_placeholder">Texto genérico</string>
@@ -48,6 +48,8 @@
     <string name="send_email">Enviar</string>
     <string name="forgot_password_text">Enviar</string>
     <string name="forgot_password_title">Esqueci da minha senha</string>
+    <string name="forgot_password_sent_message">E-mail de recuperação enviado com sucesso. Verifique a sua caixa de entrada.</string>
+    <string name="back_home">Voltar ao início</string>
 
     <!-- CREATE PROFILE | PROFILE -->
     <string name="create_profile_text">Criar Perfil</string>
@@ -65,7 +67,7 @@
     <string name="frequency_i_play">Frequencia que jogo</string>
     <string name="plataforms">Plataformas</string>
 
-    <string name="tags_text">Selecione 5 tags para o seu perfil!</string>
+    <string name="tags_text">Selecione até 5 tags para o seu perfil!</string>
     <string name="edit_tags_title">Editar Tags</string>
     <string name="tags_title">Tags</string>
     <!-- ERRORS -->
@@ -101,6 +103,10 @@
     <string name="accept_txt">Aceitar</string>
     <string name="deny_txt">Recusar</string>
 
+
+    <string name="message_text">Mensagem</string>
+
     <string name="place_holder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac porttitor sem, nec consectetur tellus. Curabitur vel diam augue. Aliquam id ipsum blandit, ultricies metus et, congue ligula. Aenean ultrices sem quis purus aliquet, sed vehicula neque faucibus. Vivamus at mollis mi. Maecenas bibendum ex mi, in efficitur sapien sollicitudin quis. In mauris odio, posuere mollis laoreet ut, bibendum ornare tellus. Nam nisi ex, vestibulum non risus a, dapibus tempus augue. Ut aliquam tempus feugiat. Nam sed leo tincidunt, dignissim risus ac, egestas ante. Nullam feugiat diam mauris, sit amet maximus diam pretium eget.</string>
+    <string name="title_activity_chat">ChatActivity</string>
 
 </resources>

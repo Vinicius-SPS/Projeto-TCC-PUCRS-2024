@@ -1,6 +1,7 @@
 package silva.vinicius.projeto.view.home.inivites
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import silva.vinicius.projeto.R
-import silva.vinicius.projeto.view.home.listsPlaceholder.ChatsContentPlaceholder
-import silva.vinicius.projeto.view.home.listsPlaceholder.InvitesContentPlaceholder
 import silva.vinicius.projeto.viewmodel.InvitesFragmentViewModel
 
 class InvitesFragment : Fragment() {
@@ -29,16 +28,25 @@ class InvitesFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_invites, container, false)
         viewModel = InvitesFragmentViewModel()
-        // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
+        viewModel.getInvitesList(){result, inviteList, message ->
+            if (result){
+                if (view is RecyclerView) {
+                    with(view) {
+                        layoutManager = when {
+                            columnCount <= 1 -> LinearLayoutManager(context)
+                            else -> GridLayoutManager(context, columnCount)
+                        }
+                        adapter = InvitesRecyclerViewAdapter(context, inviteList)
+                    }
                 }
-                adapter = InvitesRecyclerViewAdapter(context, InvitesContentPlaceholder.USERS, ChatsContentPlaceholder.USERS)
             }
+            else{
+                Log.d("InvitesFragment", message)
+            }
+
         }
+        // Set the adapter
+
         return view
     }
 

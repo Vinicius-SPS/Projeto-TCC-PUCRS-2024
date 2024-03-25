@@ -13,12 +13,12 @@ class CreateProfileNameViewModel {
         return validateNameLocal.getIsNameValid()
     }
 
-    fun verifyName(email: Editable?): Boolean{
-        if(validateNameLocal.verifyIsNameEmpty(email)) {
+    fun verifyName(name: Editable?): Boolean{
+        if(validateNameLocal.verifyIsNameEmpty(name)) {
             Log.d("CreateProfileViewModel","name: " + validateNameLocal.getErrorMessage())
             return false
         }
-        if(validateNameLocal.verifyIsNameValid(email)){
+        if(validateNameLocal.verifyIsNameValid(name)){
             Log.d("CreateProfileViewModel","name: " + validateNameLocal.getErrorMessage())
             return false
         }

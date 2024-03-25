@@ -1,101 +1,122 @@
 package silva.vinicius.projeto.viewmodel
 
 import android.util.Log
+import silva.vinicius.projeto.firebase.get.FirebaseGetPersonalProfile
+import silva.vinicius.projeto.firebase.update.singleupdates.FirebaseUpdateTags
+import silva.vinicius.projeto.model.PersonalProfile
+import silva.vinicius.projeto.utils.tags.TagGameStyle
+import silva.vinicius.projeto.utils.tags.TagGames
+import silva.vinicius.projeto.utils.tags.TagLanguages
+import silva.vinicius.projeto.utils.tags.TagManager
+import silva.vinicius.projeto.utils.tags.TagPlatforms
 
 class EditProfileTagViewModel {
-    private var tagGames: silva.vinicius.projeto.utils.TagValidations.TagGames =
-        silva.vinicius.projeto.utils.TagValidations.TagGames()
-    private var tagGameStyle: silva.vinicius.projeto.utils.TagValidations.TagGameStyle =
-        silva.vinicius.projeto.utils.TagValidations.TagGameStyle()
-    private var tagLanguages: silva.vinicius.projeto.utils.TagValidations.TagLanguages =
-        silva.vinicius.projeto.utils.TagValidations.TagLanguages()
-    private var tagPlataforms: silva.vinicius.projeto.utils.TagValidations.TagPlataforms =
-        silva.vinicius.projeto.utils.TagValidations.TagPlataforms()
-    private var tagManager: silva.vinicius.projeto.utils.TagValidations.TagManager =
-        silva.vinicius.projeto.utils.TagValidations.TagManager()
+    private var tagGames: TagGames =
+        TagGames()
+    private var tagGameStyle: TagGameStyle =
+        TagGameStyle()
+    private var tagLanguages: TagLanguages =
+        TagLanguages()
+    private var tagPlatforms: TagPlatforms =
+        TagPlatforms()
+    private var tagManager: TagManager =
+        TagManager()
 
-    fun getIsListFull(): Boolean {
+
+    fun getPersonalProfile(callback: (Boolean, PersonalProfile?, String) -> Unit){
+        FirebaseGetPersonalProfile().getPersonalProfile(callback)
+    }
+
+    fun updateTags(tags: String, callback: (Boolean, String?) -> Unit){
+        FirebaseUpdateTags().updateProfile(tags, callback)
+    }
+
+    fun getTags(): String{
+        return tagManager.getList()
+    }
+
+    fun getIsListFull(): Boolean{
         return tagManager.isListFull()
     }
 
-    fun getIsListSize(): Int {
-        Log.d("CreateProfileTagViewModel", "Tamanho da Lista: " + tagManager.getSize().toString())
+    fun getIsListSize(): Int{
+        Log.d("CreateProfileTagViewModel","Tamanho da Lista: " + tagManager.getSize().toString())
         return tagManager.getSize()
     }
 
-    fun addItemList(item: String) {
+    fun addItemList(item: String){
         tagManager.addItem(item)
-        Log.d("CreateProfileTagViewModel", "Adicionado: " + tagManager.getList())
+        Log.d("CreateProfileTagViewModel","Adicionado: " + tagManager.getList())
     }
 
-    fun removeItemList(item: String) {
+    fun removeItemList(item: String){
         tagManager.removeItem(item)
-        Log.d("CreateProfileTagViewModel", "Removido: " + tagManager.getList())
+        Log.d("CreateProfileTagViewModel","Removido: " + tagManager.getList())
     }
 
-    fun tagStateCasual(): Boolean {
-        Log.d("CreateProfileTagViewModel", "antes: " + tagGameStyle.getStateCasual())
+    fun tagStateCasual(): Boolean{
+        Log.d("CreateProfileTagViewModel","antes: " + tagGameStyle.getStateCasual())
         tagGameStyle.setStateCasual()
-        Log.d("CreateProfileTagViewModel", "depois: " + tagGameStyle.getStateCasual())
+        Log.d("CreateProfileTagViewModel","depois: " + tagGameStyle.getStateCasual())
         return tagGameStyle.getStateCasual()
     }
 
-    fun tagStateCompetitive(): Boolean {
+    fun tagStateCompetitive(): Boolean{
         tagGameStyle.setStateCompetitive()
         return tagGameStyle.getStateCompetitive()
     }
 
-    fun tagStatePortuguese(): Boolean {
+    fun tagStatePortuguese(): Boolean{
         tagLanguages.setStatePortuguese()
         return tagLanguages.getStatePortuguese()
     }
 
-    fun tagStateEnglish(): Boolean {
+    fun tagStateEnglish(): Boolean{
         tagLanguages.setStateEnglish()
         return tagLanguages.getStateEnglish()
     }
 
-    fun tagStatePc(): Boolean {
-        tagPlataforms.setStatePc()
-        return tagPlataforms.getStatePc()
+    fun tagStatePc(): Boolean{
+        tagPlatforms.setStatePc()
+        return tagPlatforms.getStatePc()
     }
 
-    fun tagStateXbox(): Boolean {
-        tagPlataforms.setStateXbox()
-        return tagPlataforms.getStateXbox()
+    fun tagStateXbox(): Boolean{
+        tagPlatforms.setStateXbox()
+        return  tagPlatforms.getStateXbox()
     }
 
-    fun tagStatePlayStation(): Boolean {
-        tagPlataforms.setStatePlayStation()
-        return tagPlataforms.getStatePlayStation()
+    fun tagStatePlayStation(): Boolean{
+        tagPlatforms.setStatePlayStation()
+        return  tagPlatforms.getStatePlayStation()
     }
 
-    fun tagStateMobile(): Boolean {
-        tagPlataforms.setStateMobile()
-        return tagPlataforms.getStateMobile()
+    fun tagStateMobile(): Boolean{
+        tagPlatforms.setStateMobile()
+        return tagPlatforms.getStateMobile()
     }
 
-    fun tagStateLol(): Boolean {
+    fun tagStateLol(): Boolean{
         tagGames.setStateLoL()
         return tagGames.getStateLoL()
     }
 
-    fun tagStateMinecraft(): Boolean {
+    fun tagStateMinecraft(): Boolean{
         tagGames.setStateMinecraft()
         return tagGames.getStateMinecraft()
     }
 
-    fun tagStateCs(): Boolean {
+    fun tagStateCs(): Boolean{
         tagGames.setStateCs()
         return tagGames.getStateCs()
     }
 
-    fun tagStateApex(): Boolean {
+    fun tagStateApex(): Boolean{
         tagGames.setStateApex()
         return tagGames.getStateApex()
     }
 
-    fun tagStateFreeFire(): Boolean {
+    fun tagStateFreeFire(): Boolean{
         tagGames.setStateFreeFire()
         return tagGames.getStateFreeFire()
     }

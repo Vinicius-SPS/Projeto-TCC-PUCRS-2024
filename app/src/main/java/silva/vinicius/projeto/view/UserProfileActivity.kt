@@ -15,9 +15,16 @@ class UserProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel = UserProfileViewModel()
-
+        getInfo()
         if(intent.extras != null){
-            setInfo()
+            viewModel.getUserProfile(bundle.getString("user_id")){result, profile, message ->
+                if (result && profile != null){
+                    binding.title.text = profile.userName
+                    binding.descriptionText.text = profile.description
+                    binding.tagsText.text = profile.tags
+                }
+
+            }
         }
 
         binding.btnBack.setOnClickListener{
@@ -25,14 +32,7 @@ class UserProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun setInfo(){
+    private fun getInfo(){
         bundle = intent.extras!!
-
-//        binding.userName.text = bundle.getString("user_name")
-        binding.descriptionText.text = bundle.getString("description")
-        binding.title.text = bundle.getString("user_name")
-//        binding.userOnline.text = bundle.getString("online_status")
-        binding.tagsText.text = bundle.getString("tags")
-
     }
 }
