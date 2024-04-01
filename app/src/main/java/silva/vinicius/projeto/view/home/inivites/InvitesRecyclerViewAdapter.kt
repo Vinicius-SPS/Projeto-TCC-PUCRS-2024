@@ -69,7 +69,7 @@ class InvitesRecyclerViewAdapter(
                     viewHolder.itemView.setOnClickListener {
                         val intent = Intent(context, UserProfileActivity::class.java)
                         intent.putExtra("user_id", item.id)
-
+                        context.startActivity(intent)
                     }
 
                 }
