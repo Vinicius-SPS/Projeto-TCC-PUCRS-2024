@@ -1,4 +1,4 @@
-# Projeto de Desenvolvimento Tecnológico para o Curso de Desenvolvimento Fullstack da PUCRS
+# Projeto de Desenvolvimento Tecnológico para o Curso de Desenvolvimento Full Stack da PUCRS
 
 ## Descrição
 Esse é o projeto de desenvolvimento tecnológico para o Curso de Desenvolvimento Fullstack da PUCRS. A versão atual a ser entregue representa um MVP do projeto com algumas das funcionalidades essenciais 
